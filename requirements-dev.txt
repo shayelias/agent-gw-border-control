@@ -1,0 +1,7 @@
+google-cloud-aiplatform[agent_engines]==2.7.0
+google-genai
+cloudpickle
+pydantic
+requests
+cloud-sql-python-connector[pymysql]
+google-cloud-secret-manager
