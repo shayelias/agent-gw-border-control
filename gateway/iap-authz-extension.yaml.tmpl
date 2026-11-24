@@ -1,0 +1,10 @@
+# The gateway asks IAP to authorize every request.
+# Start in DRY_RUN (decisions are logged, not enforced); scripts/80-enforce.sh removes it.
+# failOpen: false = if IAP cannot answer, the request is blocked (the original demo ran with true).
+name: projects/${PROJECT_ID}/locations/${REGION}/authzExtensions/${GATEWAY}-iap-authzextension
+service: iap.googleapis.com
+failOpen: false
+timeout: 10s
+metadata:
+  iapPolicyVersion: V2
+  iamEnforcementMode: DRY_RUN

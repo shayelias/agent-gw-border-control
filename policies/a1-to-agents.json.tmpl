@@ -1,0 +1,16 @@
+[
+  {
+    "description": "A1 may call A2",
+    "effect": "ALLOW",
+    "principals": ["principal://agents.global.org-${ORG_ID}.system.id.goog/resources/aiplatform/projects/${PROJECT_NUMBER}/locations/${REGION}/reasoningEngines/${AGENT1_ID}"],
+    "operation": { "permissions": ["iap.googleapis.com/resources.egressViaIAP"] },
+    "conditions": { "iap.googleapis.com": { "expression": "destination.agent_registry.endpoint.name == 'projects/${PROJECT_ID}/locations/${REGION}/endpoints/${AGENT2_ENDPOINT}'" } }
+  },
+  {
+    "description": "A1 may NOT call A3",
+    "effect": "DENY",
+    "principals": ["principal://agents.global.org-${ORG_ID}.system.id.goog/resources/aiplatform/projects/${PROJECT_NUMBER}/locations/${REGION}/reasoningEngines/${AGENT1_ID}"],
+    "operation": { "permissions": ["iap.googleapis.com/resources.egressViaIAP"] },
+    "conditions": { "iap.googleapis.com": { "expression": "destination.agent_registry.endpoint.name == 'projects/${PROJECT_ID}/locations/${REGION}/endpoints/${AGENT3_ENDPOINT}'" } }
+  }
+]

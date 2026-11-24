@@ -1,0 +1,9 @@
+[
+  {
+    "description": "Agent 1 may reach destinations registered in the regional Agent Registry",
+    "effect": "ALLOW",
+    "principals": ["principal://agents.global.org-${ORG_ID}.system.id.goog/resources/aiplatform/projects/${PROJECT_NUMBER}/locations/${REGION}/reasoningEngines/${AGENT1_ID}"],
+    "operation": { "permissions": ["iap.googleapis.com/resources.egressViaIAP"] },
+    "conditions": { "iap.googleapis.com": { "expression": "destination.is_registered == true && destination.agent_registry.location == '${REGION}'" } }
+  }
+]

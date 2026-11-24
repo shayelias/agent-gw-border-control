@@ -1,0 +1,10 @@
+name: projects/${PROJECT_ID}/locations/${REGION}/authzPolicies/${GATEWAY}-iap-authzpolicy
+action: CUSTOM
+customProvider:
+  authzExtension:
+    resources:
+    - projects/${PROJECT_NUMBER}/locations/${REGION}/authzExtensions/${GATEWAY}-iap-authzextension
+policyProfile: REQUEST_AUTHZ
+target:
+  resources:
+  - projects/${PROJECT_NUMBER}/locations/${REGION}/agentGateways/${GATEWAY}

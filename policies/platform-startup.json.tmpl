@@ -1,0 +1,9 @@
+[
+  {
+    "description": "Agents 1 and 3 may make the runtime's startup project lookup (Resource Manager GetProject)",
+    "effect": "ALLOW",
+    "principals": ["principal://agents.global.org-${ORG_ID}.system.id.goog/resources/aiplatform/projects/${PROJECT_NUMBER}/locations/${REGION}/reasoningEngines/${AGENT1_ID}", "principal://agents.global.org-${ORG_ID}.system.id.goog/resources/aiplatform/projects/${PROJECT_NUMBER}/locations/${REGION}/reasoningEngines/${AGENT3_ID}"],
+    "operation": { "permissions": ["iap.googleapis.com/resources.egressViaIAP"] },
+    "conditions": { "iap.googleapis.com": { "expression": "destination.is_registered == false && destination.unregistered.host == 'cloudresourcemanager.mtls.googleapis.com' && destination.unregistered.path == '/google.cloud.resourcemanager.v3.Projects/GetProject'" } }
+  }
+]
